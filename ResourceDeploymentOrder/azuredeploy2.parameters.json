@@ -3,13 +3,13 @@
   "contentVersion": "1.0.0.0",
   "parameters": {
     "storagePrefix": {
-      "value": "devstore"
+      "value": "store"
     },
     "storageSKU": {
       "value": "Standard_LRS"
     },
     "dnsLabelPrefix": {
-        "value": "GEN-UNIQUE"
+        "value": "td14dev"
     },         
     "appServicePlanName": {
       "value": "devplan"
