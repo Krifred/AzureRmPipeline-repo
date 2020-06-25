@@ -61,7 +61,11 @@
     "uniqueStorageName": "[concat(parameters('storagePrefix'), uniqueString(resourceGroup().id))]",
     "webAppPortalName": "[concat(parameters('webAppName'), uniqueString(resourceGroup().id))]",
     "publicIPAddressName": "tdPublicIP",
-    "networkSecurityGroupName": "default-NSG"    
+    "networkSecurityGroupName": "default-NSG",
+    "virtualNetworkName": "tdVNET",
+    "addressPrefix": "10.0.0.0/16",
+    "subnetName": "Subnet",
+    "subnetPrefix": "10.0.0.0/24"    
   },
   "resources": [
     {
@@ -109,6 +113,33 @@
               "sourcePortRange":  "*",
               "sourceAddressPrefix":  "*",
               "destinationAddressPrefix":  "*"
+            }
+          }
+        ]
+      }
+    },    
+    {
+      "type": "Microsoft.Network/virtualNetworks",
+      "apiVersion": "2018-11-01",
+      "name": "[variables('virtualNetworkName')]",
+      "location": "[parameters('location')]",
+      "dependsOn": [
+        "[resourceId('Microsoft.Network/networkSecurityGroups', variables('networkSecurityGroupName'))]"
+      ],
+      "properties": {
+        "addressSpace": {
+          "addressPrefixes": [
+            "[variables('addressPrefix')]"
+          ]
+        },
+        "subnets": [
+          {
+            "name": "[variables('subnetName')]",
+            "properties": {
+              "addressPrefix": "[variables('subnetPrefix')]",
+              "networkSecurityGroup": {
+                "id": "[resourceId('Microsoft.Network/networkSecurityGroups', variables('networkSecurityGroupName'))]"
+              }
             }
           }
         ]
