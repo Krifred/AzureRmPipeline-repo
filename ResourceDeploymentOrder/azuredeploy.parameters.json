@@ -1,0 +1,30 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "adminUsername": {
+            "value": "GEN-UNIQUE"
+        },
+        "adminPassword": {
+            "value": "GEN-PASSWORD"
+        },
+        "location": {
+            "value": "eastus"
+        },
+        "dnsLabelPrefix": {
+            "value": "GEN-UNIQUE"
+        },     
+        "storagePrefix": {
+            "value": "devstore"
+        },
+        "storageSKU": {
+            "value": "Standard_LRS"
+        },
+        "resourceTags": {
+            "value": {
+                "Environment": "Dev",
+                "Project": "Tutorial"
+            }
+        }
+    }
+}
