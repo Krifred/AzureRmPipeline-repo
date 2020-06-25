@@ -17,6 +17,15 @@
     "webAppName": {
       "value": "devapp"
     },
+    "vmSize": {
+        "value": "Standard_D2_v3"
+    },    
+    "adminUsername": {
+        "value": "krifred"
+    },
+    "adminPassword": {
+        "value": "P@ssw0rd1"
+    },
     "resourceTags": {
       "value": {
         "Environment": "Dev",
